@@ -83,6 +83,7 @@ npm run dev
 
 ## 📂 Project Structure
 
+```
 ecommerce-storefront/
 ├── client/                          # Frontend (React)
 │   ├── src/
@@ -98,3 +99,4 @@ ecommerce-storefront/
 │       └── EcommerceApplication.java
 │
 └── README.md
+```
