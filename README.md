@@ -9,7 +9,7 @@ A full-stack e-commerce web application that allows users to browse products, ma
 
 ### Planned
 - [x] User signup/login (JWT-based auth)
-- [ ] Product listing page
+- [x] Product listing page
 - [ ] Product detail page
 - [ ] Shopping cart (add/remove/update quantity)
 - [ ] Checkout flow
