@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../services/api";
+import { getProducts, addToCart } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,18 @@ const Home = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const { user } = useAuth();
+
+  const handleAddToCart = async (productId) => {
+    if (!user) { navigate("/login"); return; }
+    try {
+      await addToCart({ userId: user.userId, productId, quantity: 1 });
+      alert("Added to cart!");
+    } catch {
+      alert("Failed to add to cart.");
+    }
+  };
+
   if (loading) return <p style={{ padding: "2rem" }}>Loading products...</p>;
 
   return (
@@ -24,13 +37,13 @@ const Home = () => {
       ) : (
         <div style={styles.grid}>
           {products.map((product) => (
-            <div key={product.id} style={styles.card}
-              onClick={() => navigate(`/product/${product.id}`)}>
+            <div key={product.id} style={styles.card}>
               <div style={styles.image}>🛍️</div>
               <h3 style={styles.name}>{product.name}</h3>
               <p style={styles.category}>{product.category}</p>
               <p style={styles.price}>₹{product.price.toLocaleString()}</p>
               <p style={styles.stock}>Stock: {product.stock}</p>
+              <button style={styles.addBtn} onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
             </div>
           ))}
         </div>
@@ -50,6 +63,8 @@ const styles = {
   category: { color: "#718096", fontSize: "0.85rem", margin: "0 0 0.5rem" },
   price: { color: "#2d3748", fontWeight: "bold", margin: "0 0 0.25rem" },
   stock: { color: "#48bb78", fontSize: "0.85rem", margin: 0 },
+  addBtn: { width: "100%", padding: "0.5rem", backgroundColor: "#1a1a2e",
+  color: "white", border: "none", borderRadius: "4px", cursor: "pointer", marginTop: "0.5rem" },
 };
 
 export default Home;
