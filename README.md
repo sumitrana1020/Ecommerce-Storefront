@@ -12,9 +12,9 @@ A full-stack e-commerce web application that allows users to browse products, ma
 - [x] Product listing page
 - [x] Product detail page
 - [x] Shopping cart (add/remove/update quantity)
-- [ ] Checkout flow
-- [ ] Order history
-- [ ] Admin dashboard (manage products & orders)
+- [x] Checkout flow
+- [x] Order history
+- [x] Admin dashboard (manage products & orders)
 - [ ] Payment integration (Stripe/Razorpay test mode)
 - [ ] Search & filter products
 - [ ] Deployment
