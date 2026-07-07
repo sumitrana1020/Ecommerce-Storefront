@@ -4,6 +4,7 @@ import com.sumit.ecommerce.model.*;
 import com.sumit.ecommerce.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
@@ -27,6 +28,7 @@ public class OrderService {
                 .orElseThrow(() -> new RuntimeException("Order not found"));
     }
 
+    @Transactional
     public Order placeOrder(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));

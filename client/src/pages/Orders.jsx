@@ -12,8 +12,14 @@ const Orders = () => {
   useEffect(() => {
     if (!user) { navigate("/login"); return; }
     getUserOrders(user.userId)
-      .then((res) => setOrders(res.data))
-      .catch((err) => console.error(err))
+      .then((res) => {
+        const data = Array.isArray(res.data) ? res.data : [];
+        setOrders(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        setOrders([]);
+      })
       .finally(() => setLoading(false));
   }, [user, navigate]);
 
@@ -61,7 +67,7 @@ const Orders = () => {
 };
 
 const styles = {
-  container: { padding: "2rem", maxWidth: "800px", margin: "0 auto" },
+  container: { padding: "2rem", maxWidth: "800px", margin: "0 auto", minHeight: "80vh", color: "#1a1a2e" },
   card: { backgroundColor: "white", borderRadius: "8px", padding: "1.5rem",
     marginBottom: "1.5rem", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" },
   header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" },
