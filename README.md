@@ -10,11 +10,11 @@ A full-stack e-commerce web application that allows users to browse products, ma
 ### Planned
 - [x] User signup/login (JWT-based auth)
 - [x] Product listing page
-- [ ] Product detail page
-- [ ] Shopping cart (add/remove/update quantity)
-- [ ] Checkout flow
-- [ ] Order history
-- [ ] Admin dashboard (manage products & orders)
+- [x] Product detail page
+- [x] Shopping cart (add/remove/update quantity)
+- [x] Checkout flow
+- [x] Order history
+- [x] Admin dashboard (manage products & orders)
 - [ ] Payment integration (Stripe/Razorpay test mode)
 - [ ] Search & filter products
 - [ ] Deployment
