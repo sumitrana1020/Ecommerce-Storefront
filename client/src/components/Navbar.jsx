@@ -19,6 +19,9 @@ const Navbar = () => {
           <>
             <Link to="/cart" style={styles.link}>Cart</Link>
             <Link to="/orders" style={styles.link}>Orders</Link>
+            {user.role === "ADMIN" && (
+              <Link to="/admin" style={styles.adminLink}>Admin</Link>
+            )}
             <span style={styles.username}>Hi, {user.name}</span>
             <button onClick={handleLogout} style={styles.button}>Logout</button>
           </>
@@ -39,6 +42,7 @@ const styles = {
   brand: { color: "white", textDecoration: "none", fontSize: "1.5rem", fontWeight: "bold" },
   links: { display: "flex", alignItems: "center", gap: "1.5rem" },
   link: { color: "white", textDecoration: "none" },
+  adminLink: { color: "#fbd38d", textDecoration: "none", fontWeight: "bold" },
   username: { color: "#a0aec0" },
   button: { backgroundColor: "#e53e3e", color: "white", border: "none",
     padding: "0.4rem 1rem", borderRadius: "4px", cursor: "pointer" },
