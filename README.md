@@ -16,7 +16,7 @@ A full-stack e-commerce web application that allows users to browse products, ma
 - [x] Order history
 - [x] Admin dashboard (manage products & orders)
 - [ ] Payment integration (Stripe/Razorpay test mode)
-- [ ] Search & filter products
+- [x] Search & filter products
 - [ ] Deployment
 
 ## 🛠️ Tech Stack
