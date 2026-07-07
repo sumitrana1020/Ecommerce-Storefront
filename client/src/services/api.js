@@ -33,3 +33,4 @@ export const clearCart = (userId) => API.delete(`/cart/clear/${userId}`);
 // Orders
 export const placeOrder = (userId) => API.post(`/orders/place/${userId}`);
 export const getUserOrders = (userId) => API.get(`/orders/user/${userId}`);
+export const cancelOrder = (orderId) => API.put(`/orders/${orderId}/status`, { status: "CANCELLED" });
