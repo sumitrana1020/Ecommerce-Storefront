@@ -99,7 +99,18 @@ const Home = () => {
                 onClick={() => navigate(`/product/${product.id}`)}
                 onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-4px)"}
                 onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}>
-                <div style={styles.imageBox}>🛍️</div>
+                <div style={styles.imageBox}>
+                  {product.imageUrl ? (
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      style={styles.image}
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: "4rem" }}>🛍️</span>
+                  )}
+                </div>
                 <div style={styles.cardBody}>
                   <span style={styles.categoryTag}>{product.category}</span>
                   <h3 style={styles.name}>{product.name}</h3>
@@ -159,8 +170,12 @@ const styles = {
     cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s",
     boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
   },
-  imageBox: { backgroundColor: "#f7f8fc", padding: "2rem",
-    textAlign: "center", fontSize: "4rem" },
+  imageBox: {
+    backgroundColor: "#f7f8fc", height: "180px",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    overflow: "hidden"
+  },
+  image: { width: "100%", height: "100%", objectFit: "cover" },
   cardBody: { padding: "1.25rem" },
   categoryTag: { backgroundColor: "#ebf4ff", color: "#4299e1",
     padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: "600" },
