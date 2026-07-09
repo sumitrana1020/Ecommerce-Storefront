@@ -31,9 +31,9 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(List.of(
+                config.setAllowedOrigins(java.util.List.of(
                     "http://localhost:5173",
-                    "https://your-app.vercel.app" 
+                    "https://ecommerce-storefront-rosy.vercel.app"
                 ));
                 config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 config.setAllowedHeaders(List.of("*"));
