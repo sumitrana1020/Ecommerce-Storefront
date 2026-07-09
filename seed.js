@@ -22,7 +22,7 @@ const seedProducts = async () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/products", {
+      const response = await fetch("https://ecommerce-storefront-0cfa.onrender.com/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
